@@ -38,9 +38,22 @@ def encode():               # Takes in password and shifts/adds digit up by 3
     print("Your password has been encoded and stored!\n")
 
 
-def decode():               # Prints out encoded password and original password
-    pass
+def decode():              # Prints out encoded password and original password
+    global new_pass
+    global decode_pass
+    decode_pass = ''
+    new_pass_str = ''
 
+    for i in new_pass:
+      num = i - 3              #Shifts each digit down by 3 numbers. 
+      if num < 0:
+        num =  10 + num           #Digit cannot be negative, so digit continue to shift down from 9 after passing 0.
+      decode_pass += str(num)
+
+    for j in new_pass:          #converts an 'encoded password' list into a string. 
+      new_pass_str += str(j)
+    
+    print(f'The encoded password is {new_pass_str}, and the original password is {decode_pass}.\n')
 
 if __name__ == "__main__":
     main()
